@@ -8,13 +8,13 @@ LunchCheckController.$inject = ['$scope'];
 function LunchCheckController($scope) {
     $scope.dishes = '';
     $scope.check = function () {
-        var numOfDishes = calcNumberOfDishes($scope.dishes);
+        var numOfDishes = dishNumCalc($scope.dishes);
 
         messageUpdate(numOfDishes);
         colorUpdate(numOfDishes);
     }
 
-    function calcNumberOfDishes (dishes) {
+    function dishNumCalc (dishes) {
         var count = 0;
             if (dishes) {
                 count = dishes.split(',').length;  
