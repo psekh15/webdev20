@@ -31,7 +31,7 @@
             <div class="col-md-6" ng-controller="ToBuyController as itemBuyer">
                 <h2>To Buy:</h2>
                 <ul>
-                    <li ng-repeat="item in itemBuyer.items">Buy {{item.quantity}} {{item.name}} for {{item.pricePerItem}} each
+                    <li ng-repeat="item in itemBuyer.items">Buy {{item.quantity}} {{item.name}} for {{item.pricePerItem| currency}} each
                         <input type="text" ng-model= "item.quantity" placeholder="item quantity">
                         <button class="btn btn-default" ng-click="itemBuyer.buyItem($index)"><span class="glyphicon glyphicon-ok"></span> Buy</button>
                     </li>
@@ -42,7 +42,7 @@
             <div class="col-md-6" ng-controller="AlreadyBoughtController as itemBought">
               <h2>Already Bought:</h2>
               <ul>
-                  <li ng-repeat="item in itemBought.items">Bought {{item.quantity}} {{item.name}} for total price of {{item.pricePerItem}}</li>
+                  <li ng-repeat="item in itemBought.items">Bought {{item.quantity}} {{item.name}} for total price of {{item.pricePerItem * item.quantity | currency : "$$" : 2}}</li>
               </ul>
               <div ng-if="itemBought.items.length == 0" class="emptyMessage">Nothing bought yet.</div>
           </div>
@@ -55,4 +55,5 @@
 
 
   </html>
+  
   
