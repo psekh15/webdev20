@@ -29,11 +29,11 @@
     function ShoppingListCheckOffService() {
         var service = this;
         var toBuyItems = [
-            { name: "cookies", quantity: 5 },
-            { name: "apples", quantity: 10 },
-            { name: "soda cans", quantity: 2 },
-            { name: "potatoes", quantity: 2 },
-            { name: "fronzen pizzas", quantity: 1 }
+            { name: "cookies", quantity: 5, pricePerItem: 5},
+            { name: "apples", quantity: 10, pricePerItem: 2 },
+            { name: "soda cans", quantity: 2, pricePerItem: 2 },
+            { name: "potatoes", quantity: 2, pricePerItem: 1 },
+            { name: "fronzen pizzas", quantity: 1, pricePerItem: 7 }
         ];
         var boughtItems = [];
 
