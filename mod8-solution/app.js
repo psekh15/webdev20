@@ -47,7 +47,7 @@
         var service = this;
     
         service.getMatchedMenuItems = function (searchTerm) {
-            return getMenuItems().then(function (response) {
+            return getAllMenuItems().then(function (response) {
                 service.matchedItems = response.data.menu_items.filter(
                     item => item.description.indexOf(searchTerm) !== -1
                 );
@@ -56,12 +56,11 @@
             });
         }
     
-        function getMenuItems () {
+        function getAllMenuItems () {
             return $http({
                 url: ApiPath
             });
         }
     }
-    
     
     })()
