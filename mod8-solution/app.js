@@ -5,7 +5,7 @@
     .controller('NarrowItDownController', NarrowItDownController)
     .service('MenuSearchService', MenuSearchService)
     .directive('foundItems', FoundItemsDirective)
-    .constant('MenuItemsResource', 'https://davids-restaurant.herokuapp.com/menu_items.json');
+    .constant('ApiPath', 'https://davids-restaurant.herokuapp.com/menu_items.json');
     
     function FoundItemsDirective () {
         var ddo = {
@@ -25,7 +25,7 @@
     function NarrowItDownController (MenuSearchService) {
         var list = this;
     
-        list.getItems = function (searchTerm) {
+        list.getFilteredItems = function (searchTerm) {
             if (!!searchTerm) {
                 MenuSearchService.getMatchedMenuItems(searchTerm).then(function (response) {
                     list.found = response;
@@ -42,8 +42,8 @@
         }
     }
     
-    MenuSearchService.$inject = ['$http', 'MenuItemsResource'];
-    function MenuSearchService ($http, MenuItemsResource) {
+    MenuSearchService.$inject = ['$http', 'ApiPath'];
+    function MenuSearchService ($http, ApiPath) {
         var service = this;
     
         service.getMatchedMenuItems = function (searchTerm) {
@@ -58,11 +58,10 @@
     
         function getMenuItems () {
             return $http({
-                url: MenuItemsResource
+                url: ApiPath
             });
         }
     }
-    
     
     
     })()

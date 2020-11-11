@@ -54,3 +54,9 @@ input[type="text"] {
 .alert{
   clear: both;
 }
+
+.error {
+  color: red;
+  font-size: 2em;
+  font-weight: 600;
+}
